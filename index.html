@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Fat Loss Diet Plan Creator</title>
+    <meta name="description" content="Generate a customized 7-day fat loss diet plan with Kerala cuisine based on your metrics and goals.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Kerala Fat Loss Plan</h1>
+            <p class="subtitle">Personalized 7-day diet generator</p>
+        </header>
+
+        <section id="form-section" class="glass-panel slide-up">
+            <form id="diet-form">
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" min="15" max="100" required placeholder="e.g., 30">
+                    </div>
+                    <div class="input-field">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="weight">Weight (kg)</label>
+                        <input type="number" id="weight" name="weight" min="30" max="250" step="0.1" required placeholder="e.g., 75">
+                    </div>
+                    <div class="input-field">
+                        <label for="height">Height (cm)</label>
+                        <input type="number" id="height" name="height" min="100" max="250" required placeholder="e.g., 170">
+                    </div>
+                </div>
+
+                <div class="input-field full-width">
+                    <label for="activity">Activity Level</label>
+                    <div class="custom-select-wrapper">
+                        <select id="activity" name="activity" required>
+                            <option value="sedentary">Sedentary (office job, little/no exercise)</option>
+                            <option value="light">Light Activity (light exercise 1-3 days/week)</option>
+                            <option value="moderate" selected>Moderate (moderate exercise 3-5 days/week)</option>
+                            <option value="active">Active (hard exercise 6-7 days/week)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="preference">Diet Preference</label>
+                        <select id="preference" name="preference" required>
+                            <option value="non-veg">Non-Vegetarian</option>
+                            <option value="veg">Vegetarian</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label for="goal">Goal Speed</label>
+                        <select id="goal" name="goal" required>
+                            <option value="mild">Mild (0.25 kg/week)</option>
+                            <option value="moderate" selected>Moderate (0.5 kg/week)</option>
+                            <option value="fast">Aggressive (1 kg/week)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="generate-btn">
+                    <span>Generate My Plan</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </form>
+        </section>
+
+        <!-- Loading State -->
+        <section id="loading-section" class="hidden">
+            <div class="loader">
+                <div class="spinner"></div>
+                <p>Curating your Kerala diet plan...</p>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section" class="hidden glass-panel">
+            <div class="results-header">
+                <h2>Your Personalized Plan</h2>
+                <button id="regenerate-btn" class="secondary-btn">Edit Details</button>
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-label">Daily Calories</span>
+                    <span class="metric-value" id="res-calories">1800</span>
+                    <span class="metric-unit">kcal</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Daily Water Intake</span>
+                    <span class="metric-value" id="res-water">3.0</span>
+                    <span class="metric-unit">Liters</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Diet Type</span>
+                    <span class="metric-value preference-val" id="res-type">Non-Veg</span>
+                </div>
+            </div>
+
+            <div class="plan-container" id="diet-plan-container">
+                <!-- Day plans will be injected here via JS -->
+            </div>
+            
+            <div class="tips-section">
+                <h3>💡 Kerala Diet Tips</h3>
+                <ul>
+                    <li>Cook with minimal coconut oil (measure with a spoon, don't pour).</li>
+                    <li>Replace Matta rice portions partially with veggies like Thoran or Mezhukkupuratti to stay full.</li>
+                    <li>Avoid deep-fried snacks (Pazhampori, Vada) and bakery items.</li>
+                    <li>Drink warm Jeera water throughout the day for better digestion.</li>
+                    <li>Ensure every meal has a protein source (Fish, Chicken, Mutta, Kadala, or Cherupayar).</li>
+                </ul>
+            </div>
+            
+            <div class="action-footer">
+                <button id="print-btn" class="generate-btn">
+                    <span>Save / Print Plan</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
